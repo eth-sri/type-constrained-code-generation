@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "typescript": "^5.7.2",
+    "undici-types": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}

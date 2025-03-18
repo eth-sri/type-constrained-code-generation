@@ -1,0 +1,1 @@
+python3 figures_revision/fig_resample_hist.py results/humaneval_google_gemma-2-2b-it_s=*_t=1_synth_c.jsonl --style latex

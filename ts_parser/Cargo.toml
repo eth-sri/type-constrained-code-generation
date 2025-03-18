@@ -1,0 +1,9 @@
+[package]
+name = "ts_parser"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+oxc_allocator = "0.33.0"
+oxc_parser = "0.33.0"
+oxc_span = "0.33.0"

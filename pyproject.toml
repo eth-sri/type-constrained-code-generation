@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "typesafe-llm"
+version = "0.1.0"
+description = ""
+authors = ["Anonymous"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+transformers = {git = "https://github.com/huggingface/transformers.git", rev="4286586"}
+fire = "^0.7.0"
+interegular = "^0.3.3"
+datasets = "^2.20.0"
+langchain = "^0.2.11"
+langchain-openai = "^0.1.19"
+pytest-timeout = "^2.3.1"
+stopit = "^1.1.2"
+accelerate = "^0.34.2"
+# flash-attn = "^2.6.3"
+frozendict = "^2.4.6"
+
+[tool.poetry.group.dev.dependencies]
+hypothesis = "^6.75.6"
+parameterized = "^0.9.0"
+black = "^23.3.0"
+pre-commit = "^3.3.2"
+coverage = "<7.0"
+pytest = "^7.3.1"
+coveralls = "^3.3.1"
+poetry-bumpversion = "^0.3.0"
+tabulate = "^0.9.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
