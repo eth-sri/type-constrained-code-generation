@@ -1,0 +1,6 @@
+results*
+multiple_outputs.jsonl
+humanevalx_outputs.jsonl
+test.js
+test.ts
+test*.py
