@@ -93,7 +93,7 @@ def main(format="github", field="time_taken", suffix="_synth", directory="result
             row.extend(
                 (
                     # "{:.1f}".format(median(unc[suffix])) if total[suffix] else -1,
-                    "${:.1f}$&$_{{\\uparrow {:.1f}\%}}$".format(
+                    "${:.1f}$&$_{{\\uparrow {:.1f}\\%}}$".format(
                         median(con[subset]),
                         median(con[subset]) * 100 / median(unc[subset]) - 100,
                     )

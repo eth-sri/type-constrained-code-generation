@@ -135,13 +135,13 @@ def main(
             row.extend(
                 (
                     int(unc[suffix]) if unc[suffix] != 0 else -1,
-                    "${}$&$_{{\downarrow {:.1f}\\%}}$".format(
+                    "${}$&$_{{\\downarrow {:.1f}\\%}}$".format(
                         int((unc[suffix] - id[suffix])),
                         id[suffix] * 100 / unc[suffix] if unc[suffix] != 0 else 0,
                     )
                     if unc[suffix] != -1 and id[suffix] != -1
                     else -1,
-                    "$\\textbf{{{}}}$&$_{{\downarrow {:.1f}\\%}}$".format(
+                    "$\\textbf{{{}}}$&$_{{\\downarrow {:.1f}\\%}}$".format(
                         int(con[suffix]),
                         (unc[suffix] - con[suffix]) * 100 / unc[suffix]
                         if unc[suffix] != 0

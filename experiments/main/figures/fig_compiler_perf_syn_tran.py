@@ -89,11 +89,11 @@ def main(
             row.extend(
                 (
                     int(unc[suffix] * SUBSET_SIZE[subset]),
-                    "${}$&$_{{\downarrow {:.1f}\\%}}$".format(
+                    "${}$&$_{{\\downarrow {:.1f}\\%}}$".format(
                         int((unc[suffix] - id[suffix]) * SUBSET_SIZE[subset]),
                         id[suffix] * 100 / unc[suffix] if unc[suffix] != 0 else 0,
                     ),
-                    "$\\textbf{{{}}}$&$_{{\downarrow {:.1f}\\%}}$".format(
+                    "$\\textbf{{{}}}$&$_{{\\downarrow {:.1f}\\%}}$".format(
                         int(con[suffix] * SUBSET_SIZE[subset]),
                         (unc[suffix] - con[suffix]) * 100 / unc[suffix]
                         if unc[suffix] != 0

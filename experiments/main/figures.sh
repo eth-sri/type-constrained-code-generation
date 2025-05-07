@@ -5,7 +5,7 @@ set -e
 cd "$(dirname "${BASH_SOURCE[0]}")"
 # DIR is either the parameter passed to this script or the result directory
 DIR="${1:-results}"
-pip install tabulate
+python3 -m pip install tabulate
 echo ""
 echo "The following Table/Figure references refer to the revised paper, as attached to the comment thread of the discussion."
 echo ""
