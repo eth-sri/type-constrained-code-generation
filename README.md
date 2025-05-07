@@ -142,12 +142,21 @@ bash ./setup_env.sh
 # NOTE: Some models are guarded on huggingface, so you will need to visit their model page, accept the EULA and enter the huggingface Access Token to your account when prompted. See section "Requirements" for more details.
 ```
 
-Before running the experiments, you need to download the models and datasets.
-To download the models and datasets, run the following command:
+> Important note: Before running the experiments, you need to download the models and datasets used for the experiments.
+
+We provide a script to download the required dataset and models for our experiments. This script must be run before starting the experiments.
+You may specify models to download by passing the `models` paramater.
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python3 experiments/main/download_models.py
+python3 experiments/main/download_models.py --models google/gemma-2-2b-it,google/gemma-2-9b-it
 ```
+
+To download all required models and datasets, run the following command:
+
+```bash
+python3 experiments/main/download_models.py
+```
+
 
 ### Warming up
 
@@ -159,9 +168,9 @@ CUDA_VISIBLE_DEVICES=0,1 python3 experiments/main/run_experiments_syn_tran.py --
 
 This reproduces the results for Gemma-2B on the synthesis task on MBPP.
 The experiment should finish within approximately 4 hours on a single GPU.
-The results of the experiment (and all other results) will be stored in `experiments/main/results` in an appropriately named `jsonl` file, in this concrete example `experiments/main/results/mbpp_google_gemma-2-2b-it_s=0_t=1_synth_nc.jsonl` and `..._c.jsonl` for the unconstrained and type-constrained variants respectively.
+The results of the experiment (and all other results) will be stored in `experiments/main/results` in an appropriately named `jsonl` file. The general schema is `experiments/main/results/<subset>_<model>_s=<seed>_t=<temperature>_<task>_<constrained>.jsonl`. In this concrete example `experiments/main/results/mbpp_google_gemma-2-2b-it_s=0_t=1_synth_nc.jsonl` and `..._c.jsonl` for the unconstrained and type-constrained variants respectively.
 
-> The experiment runs can be cancelled at any time, intermediate results are stored in the `results` folder. Upon restarting, the script will automatically pick up the last completed instance and continue from there. It may happen that running tasks daemonize and continue running (check `nvidia-smi`). Make sure to kill them manually before restarting.
+> The experiment runs can be cancelled at any time, intermediate results are stored in the `jsonl` files. Upon restarting, the script will automatically pick up the last completed instance and continue from there. It may happen that running tasks daemonize and continue running (check `nvidia-smi`). Make sure to kill them manually before restarting.
 
 Our experiment script automatically distributes jobs over indicated GPUs.
 The script then repeatedly queries whether running jobs are completed and new GPUs are available. You will therefore see something like the following ouput:
